@@ -1,0 +1,17 @@
+High level goals:
+- roxygenise all function documentation
+ -test all functions, maybe refactorising
+- remove cruft
+- add ggplot2 based plotting
+
+A few details:
+weighted.median is only called by norm.R.  Test vs. bigvis::weighted.median and consider removing entirely.
+
+auROC isn't called any other functions in limma.  Consider deleting, using pROC::roc instead.
+
+removeExt is weird and doesn't really belong here.  Create path util package and move there.
+
+trimWhiteSpace is just stringr::str_trim. Remove.
+
+There are lots of instances of 1:n, that should be replaced with seq_len(n).
+
